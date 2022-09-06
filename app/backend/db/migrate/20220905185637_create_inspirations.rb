@@ -3,7 +3,6 @@ class CreateInspirations < ActiveRecord::Migration[6.1]
     create_table :inspirations do |t|
       t.string :title
       t.text :body
-      t.string :category
       t.integer :authors_id
       t.integer :categories_id
       t.timestamps

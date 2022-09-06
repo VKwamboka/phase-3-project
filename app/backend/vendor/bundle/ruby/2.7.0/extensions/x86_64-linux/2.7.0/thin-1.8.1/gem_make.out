@@ -1,5 +1,5 @@
 current directory: /home/kwamboka/Development/code/phase_3/phase-3-projects/app/backend/vendor/bundle/ruby/2.7.0/gems/thin-1.8.1/ext/thin_parser
-/usr/share/rvm/rubies/ruby-2.7.4/bin/ruby -I /usr/share/rvm/rubies/ruby-2.7.4/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220905-9517-1ifd2a2.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.7.4/bin/ruby -I /usr/share/rvm/rubies/ruby-2.7.4/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220906-10027-15xrj7t.rb extconf.rb
 checking for main() in -lc... yes
 creating Makefile
 
@@ -14,4 +14,4 @@ linking shared-object thin_parser.so
 
 current directory: /home/kwamboka/Development/code/phase_3/phase-3-projects/app/backend/vendor/bundle/ruby/2.7.0/gems/thin-1.8.1/ext/thin_parser
 make DESTDIR\= install
-/usr/bin/install -m 0755 thin_parser.so ./.gem.20220905-9517-1acukox
+/usr/bin/install -m 0755 thin_parser.so ./.gem.20220906-10027-6mw0pz

@@ -45,6 +45,8 @@ end
 
 gem 'rest-client', '~> 2.1'
 
+gem 'eventmachine', '~> 1.2', '>= 1.2.7'
+
 # These gems will only be used when we are running tests
 group :test do
   gem "database_cleaner", "~> 2.0"
