@@ -5,9 +5,82 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("https://schoolsweek.co.uk/wp-content/uploads/2019/01/Creative-process-pencil-sm-1000x525.jpg"); */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-color: #DEB6AB;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.nav-link{
+  color: aliceblue;
+}
+.navbar-nav{
+  float: right;
+  
+}
+.navbar{
+  background-color: #AC7088;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  min-height: 100vh;
+  min-width: 12em;
+  width: 28%;
+  border-right: solid black 1px;
+  background: #e5fdff;
+  padding: 1em;
+}
+
+.sidebar > button {
+  width: 100%;
+}
+
+.poems-container {
+  max-width: 30em;
+  margin: auto;
+}
+
+.poems-container > div {
+  border-bottom: solid 1px grey;
+  padding-bottom: 1em;
+  min-width: 20em;
+}
+
+.poems-container > div > button {
+  min-width: 4em;
+}
+
+form.new-poem-form {
+  border: solid black 1px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+form.new-poem-form > input,
+form.new-poem-form > textarea {
+  font-size: 1em;
+  font-family: sans-serif;
+  margin-bottom: 0.5em;
+}
+
+input[type="submit"],
+button {
+  font-weight: bold;
+  font-size: 1em;
+  background: #04e8ff;
+  border: solid black 1px;
+  padding: 0.5em;
+  cursor: pointer;
 }

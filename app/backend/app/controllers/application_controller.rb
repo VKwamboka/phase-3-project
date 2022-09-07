@@ -18,6 +18,14 @@ class ApplicationController < Sinatra::Base
     poemauthors.to_json
   end
 
+  # GET AUTHORS BY ID
+  get '/poemauthors/:id' do
+    # look up the game in the database using its ID
+    poemauthors = Author.find(params[:id])
+    # send a JSON-formatted response of the game data
+    poemauthors.to_json
+  end
+
   # All POEM CATEGORIES
   get '/poemcategories' do
     poemcategories = Category.all
