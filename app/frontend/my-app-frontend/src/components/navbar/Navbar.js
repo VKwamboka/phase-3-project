@@ -16,7 +16,7 @@ export default function Navbar() {
                 <Link className='nav-link' to='/poems'>Poems</Link>
             </li>
             <li className='navbar-nav'>
-                <Link className='nav-link' to='/displayrecipe'>Inspirations</Link>
+                <Link className='nav-link' to='/inspirations'>Inspirations</Link>
             </li>
             <li className='navbar-nav'>
                 <Link className='nav-link' to='/favourites'>Categories</Link>

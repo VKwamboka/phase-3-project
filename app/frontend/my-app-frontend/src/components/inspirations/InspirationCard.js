@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import PoemsContainer from "../poems/PoemCard";
-import NewPoemForm from "../poems/NewPoemForm";
+import InspirationContainer from './InspirationContainer';
+import NewInspirationForm from './NewInspirationForm';
 
-const poemAPI = "http://localhost:9292/poems";
+const poemAPI = "http://localhost:9292/inspirations";
 // id, title, content, author
 
-function App() {
+function InspirationCard() {
   const [poems, setPoems] = useState([]);
   const [formVisible, setFormVisible] = useState(true);
   const [favoriteVisible, setFavoriteVisible] = useState(true);
@@ -37,7 +37,7 @@ function App() {
       return (<h1>You have no favorites added</h1>)
     } else {
       return (
-        <PoemsContainer 
+        <InspirationContainer 
           poems={poemsToDisplay} 
           removePoem={removePoem} 
           addToFavorites={addToFavorites}
@@ -53,7 +53,7 @@ function App() {
           onClick={() => setFormVisible(!formVisible)} >
           Show/hide new poem form
         </button>
-        {formVisible ? <NewPoemForm addPoem={addPoem} /> : null}
+        {formVisible ? <NewInspirationForm addPoem={addPoem} /> : null}
 
         <button onClick={() => setFavoriteVisible(!favoriteVisible)} >
           Show/hide Favorite Poems
@@ -64,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default InspirationCard;

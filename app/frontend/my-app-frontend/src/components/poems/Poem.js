@@ -1,35 +1,3 @@
-// import React, {useState } from "react";
-
-// function Poem({poemTitle, poemContent, poemAuthor}) {
- 
-//   const [value, setValue] = useState(
-//         "Mark as read"
-//       );
-    
-//       function handleText() {
-//         const newText = "Mark as unread";
-//         setValue(newText); 
-//         if(value === newText){
-//           setValue("Mark as read")
-//         }
-//       }
-
-
-//   return (
-//     <div>
-//       <h3>{poemTitle}</h3>
-//       <p>{poemContent}</p>
-//       <p>
-//         <strong>- By {poemAuthor}</strong>
-//       </p>
-//       <button onClick = {handleText }>{value}</button>
-//       <button>Add Favourite</button>
-//     </div>
-//   );
-// }
-
-// export default Poem;
-
 import React, { useState } from 'react';
 
 const poemAPI = "http://localhost:9292/poems";
@@ -48,7 +16,7 @@ function Poem({poem, removePoem, addToFavorites}) {
     removePoem(poem);
   }
   const authorAPI =`http://localhost:9292//poemauthors/${authors_id}`
-  
+ 
 
   return (
     <div>

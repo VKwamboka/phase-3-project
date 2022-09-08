@@ -1,12 +1,12 @@
 import React from "react";
-import Poem from "../poems/Poem";
+import Inspiration from "../inspirations/Inspiration";
 
-function PoemsContainer({poems, removePoem, addToFavorites}) {
+function InspirationContainer({poems, removePoem, addToFavorites}) {
   return (
     <div className="poems-container">
       {poems.map(poem => {
         return (
-          <Poem 
+          <Inspiration
             key={poem.id} 
             poem={poem} 
             removePoem={removePoem} 
@@ -18,5 +18,5 @@ function PoemsContainer({poems, removePoem, addToFavorites}) {
   );
 }
 
-export default PoemsContainer;
+export default InspirationContainer;
 
