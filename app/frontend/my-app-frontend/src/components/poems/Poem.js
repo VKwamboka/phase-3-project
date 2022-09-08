@@ -21,7 +21,7 @@ function Poem({poem, removePoem, addToFavorites}) {
   return (
     <div>
       <h3>{title}</h3>
-      <p>{body}</p>
+      <p className='pbody'>{body}</p>
       <p>
         <strong>- By {authors_id}</strong>
       </p>

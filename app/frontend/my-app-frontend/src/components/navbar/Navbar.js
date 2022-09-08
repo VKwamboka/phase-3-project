@@ -19,7 +19,7 @@ export default function Navbar() {
                 <Link className='nav-link' to='/inspirations'>Inspirations</Link>
             </li>
             <li className='navbar-nav'>
-                <Link className='nav-link' to='/favourites'>Categories</Link>
+                <Link className='nav-link' to='/categories'>Categories</Link>
             </li>
             <li className='navbar-nav'>
                 <Link className='nav-link' to='/favourites'>Authors</Link>

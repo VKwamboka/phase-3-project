@@ -39,9 +39,12 @@ code {
 .app {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: black;
 }
-
+.pbody{
+  font-size: 18px;
+  font-weight:400;
+}
 .sidebar {
   min-height: 100vh;
   min-width: 12em;
@@ -54,7 +57,9 @@ code {
 .sidebar > button {
   width: 100%;
 }
-
+.sbtn{
+  width: 100%;
+}
 .poems-container {
   max-width: 30em;
   margin: auto;
