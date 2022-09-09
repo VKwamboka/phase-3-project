@@ -6,31 +6,6 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  # ALL POEMS
-  get '/poems' do
-    poems = Poem.all
-    poems.to_json
-  end
-
-  # ALL POEM AUTHORS
-  get '/poemauthors' do
-    poemauthors = Author.all
-    poemauthors.to_json
-  end
-
-  # GET AUTHORS BY ID
-  get '/poemauthors/:id' do
-    # look up the game in the database using its ID
-    poemauthors = Author.find(params[:id])
-    # send a JSON-formatted response of the game data
-    poemauthors.to_json
-  end
-
-  # All POEM CATEGORIES
-  get '/poemcategories' do
-    poemcategories = Category.all
-    poemcategories.to_json
-  end
 
   # ALL INSPIRATIONS
   get '/inspirations' do
@@ -48,6 +23,25 @@ class ApplicationController < Sinatra::Base
   get '/inspirationcategories' do
     inspirationcategories = InspirationCategory.all
     inspirationcategories.to_json
+  end
+
+  delete "/inspirations/:id" do
+    inspiration = Inspiration.find(params[:id])
+    inspiration.destroy
+    inspuration.to_json
+  end
+
+  post "/inspirations" do
+    inspiration = Inspiration.create(title: params[:title], body: params[:body], authors_id: params[:authors_id], category_id: params[:category_id])
+    inspiration.to_json
+  end
+
+  patch "/inspirations/:id" do
+    inspiration = Inspiration.find(params[:id])
+    inspiration.update(
+      title: params[:title],
+      body: params[:body]
+    )
   end
 
 end

@@ -5,7 +5,7 @@ import NewCategoryForm from './NewCategoryForm';
 const poemAPI = "http://localhost:9292/poemcategories";
 // id, title, content, author
 
-function CategoryCard() {
+function Collection() {
   const [poems, setPoems] = useState([]);
   const [formVisible, setFormVisible] = useState(true);
   const [favoriteVisible, setFavoriteVisible] = useState(true);
@@ -21,9 +21,6 @@ function CategoryCard() {
     setPoems([...poems, newPoem]);
   }
 
-  function removePoem(poemToRemove) {
-    setPoems(poems.filter(poem => poem.id !== poemToRemove.id))
-  }
 
   function addToFavorites(favPoem) {
     setPoems(poems.map(poem => {
@@ -38,8 +35,6 @@ function CategoryCard() {
     } else {
       return (
         <CategoryContainer 
-          poems={poemsToDisplay} 
-          removePoem={removePoem} 
           addToFavorites={addToFavorites}
         />
       )
@@ -49,15 +44,14 @@ function CategoryCard() {
   return (
     <div className="app">
       <div className="sidebar">
+            {formVisible ? <NewCategoryForm addPoem={addPoem} /> : null}
         <button onClick={() => setFavoriteVisible(!favoriteVisible)} >
           Show/hide Favorite Poems
         </button>
-        {formVisible ? <NewCategoryForm addPoem={addPoem} /> : null}
-      </div>
-      
+      </div>  
       {renderPoemView()}
     </div>
   );
 }
 
-export default CategoryCard;
+export default Collection;

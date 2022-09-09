@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const poemAPI = "http://localhost:9292/poems";
+const poemAPI = "http://localhost:9292/inspirations";
 
 
 

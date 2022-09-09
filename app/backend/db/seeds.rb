@@ -3,7 +3,10 @@ puts "🌱 Seeding spices..."
 # Seed your database here
 
 # CREATE AUTHORS
-author1 = Author.create(name: "Adam Lindsay Gordon")
+author1 = Author.create(
+    name: "Adam Lindsay Gordon"
+    
+)
 author2 = Author.create(name: "Alan Seeger")
 author3 = Author.create(name: "Alexander Pope")
 author4 = Author.create(name: "Algernon Charles Swinburne")
