@@ -2,44 +2,44 @@ import React, { useState, useEffect } from 'react';
 import InspirationContainer from './InspirationContainer';
 import NewInspirationForm from './NewInspirationForm';
 
-const poemAPI = "http://localhost:9292/inspirations";
+const quoteAPI = "http://localhost:9292/inspirations";
 // id, title, content, author
 
 function InspirationCard() {
-  const [poems, setPoems] = useState([]);
+  const [quotes, setquotes] = useState([]);
   const [formVisible, setFormVisible] = useState(true);
   const [favoriteVisible, setFavoriteVisible] = useState(true);
-  const poemsToDisplay = poems.filter((poem) => favoriteVisible || poem.isFavorite);
+  const quotesToDisplay = quotes.filter((quote) => favoriteVisible || quote.isFavorite);
 
   useEffect(() => {
-    fetch(poemAPI)
+    fetch(quoteAPI)
       .then(res => res.json())
-      .then(data => setPoems(data))
+      .then(data => setquotes(data))
   }, []);
 
-  function addPoem(newPoem) {
-    setPoems([...poems, newPoem]);
+  function addQuote(newQuote) {
+    setquotes([...quotes, newQuote]);
   }
 
-  function removePoem(poemToRemove) {
-    setPoems(poems.filter(poem => poem.id !== poemToRemove.id))
+  function removeQuote(quoteToRemove) {
+    setquotes(quotes.filter(quote => quote.id !== quoteToRemove.id))
   }
 
-  function addToFavorites(favPoem) {
-    setPoems(poems.map(poem => {
-      return poem.id === favPoem.id ? {...favPoem, isFavorite: !favPoem.isFavorite} : poem
+  function addToFavorites(favquote) {
+    setquotes(quotes.map(quote => {
+      return quote.id === favquote.id ? {...favquote, isFavorite: !favquote.isFavorite} : quote
       }  
     ))
   }
 
-  function renderPoemView() {
-    if (poemsToDisplay.length === 0 && !favoriteVisible) {
+  function renderquoteView() {
+    if (quotesToDisplay.length === 0 && !favoriteVisible) {
       return (<h1>You have no favorites added</h1>)
     } else {
       return (
         <InspirationContainer 
-          poems={poemsToDisplay} 
-          removePoem={removePoem} 
+          quotes={quotesToDisplay} 
+          removeQuote={removeQuote} 
           addToFavorites={addToFavorites}
         />
       )
@@ -51,15 +51,15 @@ function InspirationCard() {
       <div className="sidebar">
         <button 
           onClick={() => setFormVisible(!formVisible)} >
-          Show/hide new poem form
+          Show/hide new quote form
         </button>
-        {formVisible ? <NewInspirationForm addPoem={addPoem} /> : null}
+        {formVisible ? <NewInspirationForm addQuote={addQuote} /> : null}
 
         <button onClick={() => setFavoriteVisible(!favoriteVisible)} >
-          Show/hide Favorite Poems
+          Show/hide Favorite quotes
         </button>
       </div>
-      {renderPoemView()}
+      {renderquoteView()}
     </div>
   );
 }

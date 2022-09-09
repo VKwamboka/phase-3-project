@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
-const poemAPI = "http://localhost:9292/inspirations";
+const inspirationAPI = "http://localhost:9292/inspirations";
 
 
 
-function Inspiration({poem, removePoem, addToFavorites}) {
-  const {title, body, authors_id} = poem;
+function Inspiration({quote, removeQuote, addToFavorites}) {
+  const {title, body, authors_id} = quote;
   const [isRead, setIsRead] = useState(false)
 
   function onDeleteClick(e) {
     e.preventDefault();
-    fetch(`${poemAPI}/${poem.id}`, {
+    fetch(`${inspirationAPI}/${quote.id}`, {
       method: "DELETE",
     });
-    removePoem(poem);
+    removeQuote(quote);
   }
 
   
@@ -38,8 +38,8 @@ function Inspiration({poem, removePoem, addToFavorites}) {
         Delete
       </button>
 
-      <button onClick={() => addToFavorites(poem)}>
-        {poem.isFavorite ? "Unfavorite" : "♥ Favorite" }
+      <button onClick={() => addToFavorites(quote)}>
+        {quote.isFavorite ? "Unfavorite" : "♥ Favorite" }
       </button>
     </div>
   );

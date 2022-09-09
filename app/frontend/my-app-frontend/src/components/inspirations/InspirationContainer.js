@@ -1,15 +1,15 @@
 import React from "react";
 import Inspiration from "../inspirations/Inspiration";
 
-function InspirationContainer({poems, removePoem, addToFavorites}) {
+function InspirationContainer({quotes, removeQuote, addToFavorites}) {
   return (
     <div className="poems-container">
-      {poems.map(poem => {
+      {quotes.map(quote => {
         return (
           <Inspiration
-            key={poem.id} 
-            poem={poem} 
-            removePoem={removePoem} 
+            key={quote.id} 
+            quote={quote} 
+            removeQuote={removeQuote} 
             addToFavorites={addToFavorites} 
           />
         )

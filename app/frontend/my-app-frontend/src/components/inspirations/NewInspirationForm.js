@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 
-const poemAPI = "http://localhost:9292/inspirations";
+const quoteAPI = "http://localhost:9292/inspirations";
 
-function NewInspirationForm({addPoem}) {
+function NewInspirationForm({addQuote}) {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
+  const [body, setBody] = useState("");
+  const [authors_id, setAuthor] = useState("");
+  const [categories_id, setCategory] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(poemAPI, {
+    fetch(quoteAPI, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title,
-        content,
-        author,
+        body,
+        authors_id,
+        categories_id,
       }),
     })
       .then((r) => r.json())
-      .then((newPoem) => addPoem(newPoem));
+      .then((newQuote) => addQuote(newQuote));
 
     setTitle("");
-    setContent("");
+    setBody("");
     setAuthor("");
+    setCategory("");
   }
 
   return (
@@ -38,15 +41,15 @@ function NewInspirationForm({addPoem}) {
 
       <input 
         placeholder="Author" 
-        value={author}
+        value={authors_id}
         onChange={(e) => setAuthor(e.target.value)}
       />
 
       <textarea 
         placeholder="Write your masterpiece here..." 
         rows={10} 
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
       />
       
       <input 

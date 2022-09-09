@@ -32,7 +32,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/inspirations" do
-    inspiration = Inspiration.create(title: params[:title], body: params[:body], authors_id: params[:authors_id], category_id: params[:category_id])
+    inspiration = Inspiration.create(
+      title: params[:title], 
+      body: params[:body], 
+      authors_id: params[:authors_id], 
+      categories_id: params[:categories_id]
+    )
     inspiration.to_json
   end
 
