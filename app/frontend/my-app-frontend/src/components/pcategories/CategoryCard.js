@@ -2,60 +2,58 @@ import React, { useState, useEffect } from 'react';
 import CategoryContainer from './CategoryContainer';
 import NewCategoryForm from './NewCategoryForm';
 
-const poemAPI = "http://localhost:9292/poemcategories";
-// id, title, content, author
+const pcategoryAPI = "http://localhost:9292/poemcategories";
+// id, title, content, authore
 
 function CategoryCard() {
-  const [poems, setPoems] = useState([]);
+  const [pcategories, setPcategories] = useState([]);
   const [formVisible, setFormVisible] = useState(true);
   const [favoriteVisible, setFavoriteVisible] = useState(true);
-  const poemsToDisplay = poems.filter((poem) => favoriteVisible || poem.isFavorite);
+  const categoriesToDisplay = pcategories.filter((category) => favoriteVisible || category.isFavorite);
 
   useEffect(() => {
-    fetch(poemAPI)
+    fetch(pcategoryAPI)
       .then(res => res.json())
-      .then(data => setPoems(data))
+      .then(data => setPcategories(data))
   }, []);
 
-  function addPoem(newPoem) {
-    setPoems([...poems, newPoem]);
+  function addPcategory(newCategory) {
+    setPcategories([...pcategories, newCategory]);
   }
 
-  function removePoem(poemToRemove) {
-    setPoems(poems.filter(poem => poem.id !== poemToRemove.id))
+  function removeCategory(categoryToRemove) {
+    setPcategories(pcategories.filter(category => category.id !== categoryToRemove.id))
   }
 
   function addToFavorites(favPoem) {
-    setPoems(poems.map(poem => {
-      return poem.id === favPoem.id ? {...favPoem, isFavorite: !favPoem.isFavorite} : poem
+    setPcategories(pcategories.map(category => {
+      return category.id === favPoem.id ? {...favPoem, isFavorite: !favPoem.isFavorite} : category
       }  
     ))
   }
 
   function renderPoemView() {
-    if (poemsToDisplay.length === 0 && !favoriteVisible) {
-      return (<h1>You have no favorites added</h1>)
-    } else {
       return (
         <CategoryContainer 
-          poems={poemsToDisplay} 
-          removePoem={removePoem} 
+          categories={categoriesToDisplay} 
+          removeCategory={removeCategory} 
           addToFavorites={addToFavorites}
         />
       )
-    }
   }
 
   return (
-    <div className="app">
-      <div className="sidebar">
-        <button onClick={() => setFavoriteVisible(!favoriteVisible)} >
-          Show/hide Favorite Poems
-        </button>
-        {formVisible ? <NewCategoryForm addPoem={addPoem} /> : null}
+    <div>
+      <div className="app">
+        <div className="sidebar">
+          <button >
+            New Category Form
+          </button>
+          {formVisible ? <NewCategoryForm addPcategory={addPcategory} /> : null}
+        </div>
+        
+        {renderPoemView()}
       </div>
-      
-      {renderPoemView()}
     </div>
   );
 }

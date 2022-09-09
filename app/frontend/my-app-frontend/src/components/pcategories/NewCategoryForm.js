@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 
 const categoryAPI = "http://localhost:9292/poemcategories";
 
-function NewCategoryForm({addPoem}) {
+function NewCategoryForm({addPcategory}) {
   const [name, setName] = useState("");
-//   const [content, setContent] = useState("");
-//   const [author, setAuthor] = useState("");
+
 
   function handleSubmit(e) {
+    const formData = {
+      name: name,
+    };
     e.preventDefault();
     fetch(categoryAPI, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({name}),
+      body: JSON.stringify(formData),
     })
+ 
       .then((r) => r.json())
-      .then((newPoem) => addPoem(newPoem));
-
-    setName("");
-    // setContent("");
-    // setAuthor("");
+      .then((newCategory) => addPcategory(newCategory));
+      setName("");
   }
 
   return (

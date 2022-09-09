@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
 const poemAPI = "http://localhost:9292/poems";
+const pauthorAPI = "http://localhost:9292/poemauthors";
 
 function NewPoemForm({addPoem}) {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
+  const [body, setContent] = useState("");
+  const [authors_id, setAuthor] = useState("");
+  const [name, setName] = useState("");
+  const [categories_id, setCategory] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,8 +19,9 @@ function NewPoemForm({addPoem}) {
       },
       body: JSON.stringify({
         title,
-        content,
-        author,
+        body,
+        authors_id,
+        categories_id,
       }),
     })
       .then((r) => r.json())
@@ -26,6 +30,7 @@ function NewPoemForm({addPoem}) {
     setTitle("");
     setContent("");
     setAuthor("");
+    setCategory("");
   }
 
   return (
@@ -36,18 +41,26 @@ function NewPoemForm({addPoem}) {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <input 
-        placeholder="Author" 
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-
+    
       <textarea 
         placeholder="Write your masterpiece here..." 
         rows={10} 
-        value={content}
+        value={body}
         onChange={(e) => setContent(e.target.value)}
       />
+
+      <input 
+        placeholder="Author" 
+        value={authors_id}
+        onChange={(e) => setAuthor(e.target.value)}
+      />
+
+      <input 
+        placeholder="Category" 
+        value={categories_id}
+        onChange={(e) => setCategory(e.target.value)}
+      />
+
       
       <input 
         type="submit" 

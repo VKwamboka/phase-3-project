@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
-const poemAPI = "http://localhost:9292/poemcategories";
+const categoryAPI = "http://localhost:9292/poemcategories";
 
 
 
-function Category({poem, removePoem}) {
-  const {name} = poem;
+function Category({category, removeCategory}) {
+  const {name} = category;
   const [isRead, setIsRead] = useState(false)
 
   function onDeleteClick(e) {
     e.preventDefault();
-    fetch(`${poemAPI}/${poem.id}`, {
+    fetch(`${categoryAPI}/${category.id}`, {
       method: "DELETE",
     });
-    removePoem(poem);
+    removeCategory(category);
   }
   
 
@@ -21,7 +21,7 @@ function Category({poem, removePoem}) {
     <div>
          <div class="card">
         <div class="card-body">
-        <p className='pbody'>{name} poems</p>
+        <p className='pbody'>{name} poems and quotes</p>
             <button onClick={() => setIsRead(!isRead)} >
                 Edit {isRead ? "unread" : "read" }
             </button>

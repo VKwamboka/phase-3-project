@@ -32,6 +32,17 @@ function App() {
     ))
   }
 
+  function handleUpdateItem(updatedItem) {
+    const updatedItems = poems.map((item) => {
+      if (item.id === updatedItem.id) {
+        return updatedItem;
+      } else {
+        return item;
+      }
+    });
+    setPoems(updatedItems);
+  }
+
   function renderPoemView() {
     if (poemsToDisplay.length === 0 && !favoriteVisible) {
       return (<h1>You have no favorites added</h1>)

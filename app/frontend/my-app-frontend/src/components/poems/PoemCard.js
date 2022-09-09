@@ -1,7 +1,7 @@
 import React from "react";
 import Poem from "../poems/Poem";
 
-function PoemsContainer({poems, removePoem, addToFavorites}) {
+function PoemsContainer({poems, removePoem, addToFavorites,handleUpdateItem}) {
   return (
     <div className="poems-container">
       {poems.map(poem => {
@@ -11,6 +11,7 @@ function PoemsContainer({poems, removePoem, addToFavorites}) {
             poem={poem} 
             removePoem={removePoem} 
             addToFavorites={addToFavorites} 
+            handleUpdateItem={handleUpdateItem}
           />
         )
         })}

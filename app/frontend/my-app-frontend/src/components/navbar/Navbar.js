@@ -24,7 +24,9 @@ export default function Navbar() {
             <li className='navbar-nav'>
                 <Link className='nav-link' to='/favourites'>Authors</Link>
             </li>
-
+            <li className='navbar-nav'>
+                <Link className='nav-link' to='/collections'>Mycollections</Link>
+            </li>
 
         </ul>
         

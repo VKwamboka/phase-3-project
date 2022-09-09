@@ -5,7 +5,7 @@ const poemAPI = "http://localhost:9292/poems";
 
 
 function Poem({poem, removePoem, addToFavorites}) {
-  const {title, body, authors_id} = poem;
+  const {title, body, authors_id, categories_id} = poem;
   const [isRead, setIsRead] = useState(false)
 
   function onDeleteClick(e) {
@@ -25,6 +25,9 @@ function Poem({poem, removePoem, addToFavorites}) {
       <p>
         <strong>- By {authors_id}</strong>
       </p>
+      <p>
+        <strong>- Category: {categories_id}</strong>
+      </p>
       <button onClick={() => setIsRead(!isRead)} >
         Mark as {isRead ? "unread" : "read" }
       </button>
@@ -33,7 +36,7 @@ function Poem({poem, removePoem, addToFavorites}) {
         Delete
       </button>
 
-      <button onClick={() => addToFavorites(poem)}>
+      <button onClick={() => addToFavorites(poem)} >
         {poem.isFavorite ? "Unfavorite" : "♥ Favorite" }
       </button>
     </div>

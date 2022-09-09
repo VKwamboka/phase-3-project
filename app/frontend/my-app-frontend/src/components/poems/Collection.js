@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CategoryContainer from './CategoryContainer';
-import NewCategoryForm from './NewCategoryForm';
+import CategoryContainer from '../pcategories/CategoryContainer';
+import NewCategoryForm from '../pcategories/NewCategoryForm';
+import PoemsContainer from './PoemCard';
 
 const poemAPI = "http://localhost:9292/poemcategories";
 // id, title, content, author
@@ -34,7 +35,7 @@ function Collection() {
       return (<h1>You have no favorites added</h1>)
     } else {
       return (
-        <CategoryContainer 
+        <PoemsContainer
           addToFavorites={addToFavorites}
         />
       )

@@ -1,15 +1,15 @@
 import React from "react";
 import Category from "./Category";
 
-function CategoryContainer({poems, removePoem, addToFavorites}) {
+function CategoryContainer({categories, removeCategory, addToFavorites}) {
   return (
     <div className="poems-container">
-      {poems.map(poem => {
+      {categories.map(category => {
         return (
           <Category
-            key={poem.id} 
-            poem={poem} 
-            removePoem={removePoem} 
+            key={category.id} 
+            category={category} 
+            removeCategory={removeCategory} 
             addToFavorites={addToFavorites} 
           />
         )
