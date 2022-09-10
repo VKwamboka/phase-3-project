@@ -24,10 +24,12 @@ export default function Navbar() {
             <li className='navbar-nav'>
                 <Link className='nav-link' to='/favourites'>Authors</Link>
             </li>
-            <li className='navbar-nav'>
+            {/* <li className='navbar-nav'>
                 <Link className='nav-link' to='/collections'>Mycollections</Link>
+            </li> */}
+             <li className='navbar-nav'>
+                <Link className='nav-link' to='/search'>Search</Link>
             </li>
-
         </ul>
         
     </div>
