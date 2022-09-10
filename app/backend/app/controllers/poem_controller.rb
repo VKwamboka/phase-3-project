@@ -19,6 +19,12 @@ get '/poems/:title' do
 
   end
 
+get '/poems/:body' do
+    poems = Poem.find_by(body: params[:body] )
+   poems.to_json
+
+  end
+
 
   # GET AUTHORS BY ID
   get '/poemauthors/:id' do
