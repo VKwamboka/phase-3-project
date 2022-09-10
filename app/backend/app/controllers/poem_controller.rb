@@ -22,7 +22,6 @@ get '/poems/:title' do
 get '/poems/:body' do
     poems = Poem.find_by(body: params[:body] )
    poems.to_json
-
   end
 
 

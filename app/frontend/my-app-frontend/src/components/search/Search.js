@@ -1,13 +1,15 @@
 import React,{useState, useEffect} from 'react'
 import Poem from "../poems/Poem";
+import PoemCont from "../poems/PoemCont";
 
 const SEARCH_URL ='http://localhost:9292/poems/:title'
 
-export default function Search() {
+export default function Search({poem}) {
 
   const [searchItem, setSearchItem] = useState("")
   const [counter, setCounter] = useState(0)
   const [results, setResults] = useState(0)
+  // const {title, body, authors_id, categories_id} = poem;
   const [poems, setPoems] = useState([]);
 // json-server --watch db.json -p 8004
 
@@ -40,30 +42,23 @@ useEffect(
     searchInfo, [ counter]
 )
 
-
-// let card =  poems.map(poem =>{
-//   return(
-//     <div className="poems-container">
-//     {poems.map(poem => {
-//       return (
-//         <Poem 
-//           key={poem.id} 
-//           poem={poem} 
-//         />
-//       )
-//       })}
-//   </div>
+let card =  poems?.map(poem =>{
+  return(
+    
+    // <Poem
+    //   title={poem.title} 
+    //   body={poem.body} 
+    //   authors_id={poem.authors_id}
+    //   key ={poem.id}
+    // />
+    <div>
+      <h3>{poem.title}</h3>
+    </div>
   
-//   )
-// })
-{/* <div className="poems-container">
-      {poems.map(poem => {
-        return (
-          
-        )
-        })}
-    </div> */}
+  )
+})
 
+console.log(card)
   return (
     <div className='container'>
 
@@ -78,18 +73,12 @@ useEffect(
         <hr className='class1'/>
         <br/>
       <div >
-      <div className="poems-container">
-    {poems?.map(poem => {
-      return (
-        <Poem 
-          key={poem.id} 
-          poem={poem} 
-        />
-      )
-      })}
-  </div>
-  
+      {/* <div className="poems-cotainer"> */}
+      {card}
+     
       </div>
+  
+      {/* </div> */}
 
     </div>
   )
