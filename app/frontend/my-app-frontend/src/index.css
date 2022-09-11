@@ -7,7 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #FDFF8F; */
   background-color: #FCDE67;
-
+  /* background-image: url("https://media.istockphoto.com/vectors/pen-feather-rainbow-splash-paint-vector-id504486498?k=20&m=504486498&s=612x612&w=0&h=895ZMhx3TGyfUDQfRuRaabOwzFP7BV-VzgH-tqFenbE="); */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   
 }
 .home{
@@ -217,7 +220,10 @@ img {
   /* flex: 25; */
   /* border-right: 0px; */
   border-radius: 50px;
-  
+    transition: all 0.3s ease 0s;
+    color: black;
+    border-radius: 50px;
+    padding: 8px;
 }
 
 hr{
