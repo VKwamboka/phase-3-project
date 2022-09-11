@@ -58,12 +58,17 @@ To use this repo on your machine requires some simple steps
 ### Back-end
 To set up the backend, run these commands:
 
+     cd app/backend
+
  1. `bundle install`
  2. `bundle exec rake db:migrate db:seed`
  3. You can run the app and explore your API in the Postman by using the custom Rake task:
     `bundle exec rake server`
 
 ### Front-end
+
+    cd app/frontend
+    
 1. Run `npm install` from terminal in the app directory to install dependences
 2. Finally `npm start` from terminal in app directory to start up the app server at `localhost:3000`. 
 
