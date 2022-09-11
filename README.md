@@ -20,7 +20,7 @@ To set up the backend, run these commands:
  1. `bundle install`
  2. `bundle exec rake db:migrate db:seed`
  3. You can run the app and explore your API in the Postman by using the custom Rake task:
-    `bundle exec rake server'
+    `bundle exec rake server`
 
 ### Front-end
 1. Run `npm install` from terminal in the app directory to install dependences
