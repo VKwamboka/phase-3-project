@@ -24,7 +24,36 @@ SreamOfThoughts backend is driven Ruby with Sinatra and served from an SQLite da
 To use this repo on your machine requires some simple steps
 ---
 
-Simply fork and clone this repo down to your local machine.
+### Alternative One
+
+- Open a terminal / command line interface on your computer
+- Clone the repo by using the following:
+
+        git clone git clone https://github.com/VKwamboka/phase-3-Projects
+
+- Be patient as it creates a copy on your local machine for you.
+- Change directory to the repo folder:
+
+        cd phase-3-projects
+
+- (Optional) Open it in ``Visual Studio Code``
+
+        code .
+
+- (Alternate Option) Open it in any editor of your choice.
+- Hurray! You are one step closer to being as intelligent as Einstein.
+
+### Alternative Two
+
+- On the top right corner of this page there is a button labelled ``Fork``.
+- Click on that button to fork the repo to your own account.
+- Take on the process in ``Alternative One`` above.
+- Remember to replace your username when cloning.
+
+        git clone https://github.com/your-username-here/phase-3-projects.git
+
+
+# Running the application
 
 ### Back-end
 To set up the backend, run these commands:
