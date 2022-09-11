@@ -11,9 +11,9 @@ export default function Home() {
                     <div className="introduction">
                     <img src="https://cdn.pixabay.com/photo/2021/07/02/19/31/tea-6382404__340.png" class="star1"/>
                         <h2 className="intro">
-                            Poems & Quotes!
+                            Poetry & Quotes
                             <br></br>
-                            Stream your thoughts 
+                            Stream your thoughts!
                         </h2>
                         <p className="description">
                         <img src="https://cdn.pixabay.com/photo/2016/10/27/09/57/brain-1773850__340.png" class="str"/>
