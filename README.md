@@ -1,3 +1,7 @@
+# StreamOfThoughts Full-stack web app 
+
+## Technologies Used
+---
 
 ### Javascript React Front End
 StreamOfThoughts front-end was built in Javascript React for user interactivity and dynamic styling of components. Specific React components utilized in the front end build include: [React Router Dom](https://github.com/remix-run/react-router).
@@ -7,9 +11,18 @@ SreamOfThoughts backend is driven Ruby with Sinatra and served from an SQLite da
 
 ## How to install
 ---
-Go grab the [back-end too](https://github.com/adelinealmanzar/phase-3-sinatra-react-project)!  Read install instructions there as well.
 
-- Simply fork and clone this repo down to your local machine.
-- Run `npm install` from terminal in the app directory to install dependences
-- Finally `npm run` from terminal in app directory to start up the app server at `localhost:3000`. 
- - N.B. backend connections are set to `loalhost:9292`.
+Simply fork and clone this repo down to your local machine.
+
+### Back-end
+To set up the backend, run these commands:
+
+ 1. `bundle install`
+ 2. `bundle exec rake db:migrate db:seed`
+ 3. You can run the app and explore your API in the Postman by using the custom Rake task:
+    `bundle exec rake server'
+
+### Front-end
+1. Run `npm install` from terminal in the app directory to install dependences
+2. Finally `npm start` from terminal in app directory to start up the app server at `localhost:3000`. 
+
