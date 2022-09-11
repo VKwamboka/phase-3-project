@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 const poemAPI = "http://localhost:9292/poems";
 
@@ -15,7 +16,7 @@ function Poem({poem, removePoem, addToFavorites}) {
     });
     removePoem(poem);
   }
-  const authorAPI =`http://localhost:9292//poemauthors/${authors_id}`
+  const authorAPI =`http://localhost:9292//poemauthors/`
  
 
   return (
@@ -24,12 +25,15 @@ function Poem({poem, removePoem, addToFavorites}) {
       <p className='pbody'>{body}</p>
       <p>
         <strong>- By {authors_id}</strong>
+        {/* <select> </select> */}
       </p>
       <p>
         <strong>- Category: {categories_id}</strong>
+
       </p>
       <button onClick={() => setIsRead(!isRead)} >
-        Mark as {isRead ? "unread" : "read" }
+      <Link className='nav-link' to={`edit/${poem.id}`}>Edit</Link>
+        {/* Mark as {isRead ? "unread" : "read" } */}
       </button>
 
       <button onClick={onDeleteClick} >

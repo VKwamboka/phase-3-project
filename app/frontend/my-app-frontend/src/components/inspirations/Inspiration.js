@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 const inspirationAPI = "http://localhost:9292/inspirations";
 
@@ -21,7 +22,7 @@ function Inspiration({quote, removeQuote, addToFavorites}) {
 
   
   const authorAPI =`http://localhost:9292//poemauthors/${authors_id}`
-  
+  const edit = `/edit/${quote.id}`
 
   return (
     <div>
@@ -30,10 +31,11 @@ function Inspiration({quote, removeQuote, addToFavorites}) {
       <p>
         <strong>- By {authors_id}</strong>
       </p>
-      <button onClick={() => setIsRead(!isRead)} >
-        Mark as {isRead ? "unread" : "read" }
+      <button >
+      <Link className='nav-link' to={`edit/${quote.id}`}>Edit</Link>
+        {/* Mark as {isRead ? "unread" : "read" } */}
       </button>
-
+       
       <button onClick={onDeleteClick} >
         Delete
       </button>

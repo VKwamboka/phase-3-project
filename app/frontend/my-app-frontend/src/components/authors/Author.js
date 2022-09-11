@@ -25,7 +25,7 @@ function Author({author, removeAuthor, addToFavorites}) {
   return (
 <div className='scard'>
     <div className="cards">
-    <div className="card" style={{width: 15 + 'rem', height: 350 + 'px'}}>
+    <div className="card" style={{width: 18 + 'rem', height: 400 + 'px'}}>
         <img src={image} className="card-img-top" alt={name}/>
         <div className="card-body">
             <h5 className="card-title">{name}</h5>
