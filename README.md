@@ -1,5 +1,15 @@
 # StreamOfThoughts Full-stack web app 
 
+# Description
+A web application that allows users to create and manage poems and inspirational quotes.
+
+# Getting Started
+In order for you to use the content on this repo ensure you have the following:
+
+- A computer that runs on either of the following; (Windows 7+, Linux, Mac OS)
+- nodejs 9.0+
+- Some bit of patience for your own sanity.
+
 ## Technologies Used
 ---
 
@@ -9,7 +19,9 @@ StreamOfThoughts front-end was built in Javascript React for user interactivity 
 ### Ruby with Sinatra and SQLite database
 SreamOfThoughts backend is driven Ruby with Sinatra and served from an SQLite database.  Active Record makes the datamanagement simple.  Specific technologies used in the backend build include: [Sinatra](https://github.com/sinatra/sinatra), [Thin](https://github.com/macournoyer/thin), [ActiveRecord](https://github.com/rails/rails), [SQLite3](https://github.com/sparklemotion/sqlite3-ruby/).
 
-## How to install
+## Installation
+
+To use this repo on your machine requires some simple steps
 ---
 
 Simply fork and clone this repo down to your local machine.
