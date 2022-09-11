@@ -32,7 +32,7 @@ function Poem({poem, removePoem, addToFavorites}) {
 
       </p>
       <button onClick={() => setIsRead(!isRead)} >
-      <Link className='nav-link' to={`edit/${poem.id}`}>Edit</Link>
+      <Link className='nav-link' to={`editpoem/${poem.id}`}>Edit</Link>
         {/* Mark as {isRead ? "unread" : "read" } */}
       </button>
 

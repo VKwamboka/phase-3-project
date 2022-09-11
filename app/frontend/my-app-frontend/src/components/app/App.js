@@ -8,6 +8,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Collection from "../poems/Collection";
 import Search from "../search/Search";
 import AuthorCard from "../authors/AuthorCard";
+import EditPoem from "../poems/EditPoem";
+import EditInspiration from "../inspirations/EditInspiration";
 
 function App() {
   
@@ -24,6 +26,8 @@ function App() {
         {/* <Route exact path='/collection's element={<Collection/>}/> */}
         <Route exact path='/search' element={<Search/>}/>
         <Route exact path='/authors' element={<AuthorCard/>}/>
+        <Route exact path='/editpoem/:id' element={<EditPoem/>}/>
+        <Route exact path='/edit/:id' element={<EditInspiration/>}/>
       </Routes>
     </Router>
   );
