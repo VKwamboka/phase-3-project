@@ -11,6 +11,7 @@ import AuthorCard from "../authors/AuthorCard";
 import EditPoem from "../poems/EditPoem";
 import EditInspiration from "../inspirations/EditInspiration";
 
+
 function App() {
   
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route exact path='/authors' element={<AuthorCard/>}/>
         <Route exact path='/editpoem/:id' element={<EditPoem/>}/>
         <Route exact path='/edit/:id' element={<EditInspiration/>}/>
+        <Route exact path='/editpoem/:id' element={<EditPoem/>}/>
+        {/* <Route exact path='/edit_poem/:id' element={<EditPoem/>}/> */}
       </Routes>
     </Router>
   );

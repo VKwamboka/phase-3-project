@@ -32,7 +32,7 @@ function Inspiration({quote, removeQuote, addToFavorites}) {
         <strong>- By {authors_id}</strong>
       </p>
       <button >
-      <Link className='nav-link' to={`edit/${quote.id}`}>Edit</Link>
+      <Link className='nav-link' to={`/edit/${quote.id}`}>Edit</Link>
         {/* Mark as {isRead ? "unread" : "read" } */}
       </button>
        
