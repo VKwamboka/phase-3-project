@@ -38,3 +38,7 @@ To set up the backend, run these commands:
 1. Run `npm install` from terminal in the app directory to install dependences
 2. Finally `npm start` from terminal in app directory to start up the app server at `localhost:3000`. 
 
+# Authors
+This project was contributed to by:
+- [Verah Kwamboka](https://github.com/VKwamboka/)
+
