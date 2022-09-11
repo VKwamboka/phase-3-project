@@ -76,3 +76,6 @@ To set up the backend, run these commands:
 This project was contributed to by:
 - [Verah Kwamboka](https://github.com/VKwamboka/)
 
+## license information.
+### The MIT License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  

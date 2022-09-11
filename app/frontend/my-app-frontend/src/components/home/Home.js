@@ -11,7 +11,7 @@ export default function Home() {
                     <div className="introduction">
                     <img src="https://cdn.pixabay.com/photo/2021/07/02/19/31/tea-6382404__340.png" class="star1"/>
                         <h2 className="intro">
-                            Creativity!
+                            Poems & Quotes!
                             <br></br>
                             Stream your thoughts 
                         </h2>
