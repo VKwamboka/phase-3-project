@@ -44,7 +44,7 @@ get '/poems/:body' do
   end
 
   post "/poemauthors" do
-    poemauthors = Author.create(name: params[:name])
+    poemauthors = Author.create(name: params[:name], image: params[:image])
     poemauthors.to_json
   end
 

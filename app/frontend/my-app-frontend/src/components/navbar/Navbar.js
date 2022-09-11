@@ -22,7 +22,7 @@ export default function Navbar() {
                 <Link className='nav-link' to='/categories'>Categories</Link>
             </li>
             <li className='navbar-nav'>
-                <Link className='nav-link' to='/favourites'>Authors</Link>
+                <Link className='nav-link' to='/authors'>Authors</Link>
             </li>
             {/* <li className='navbar-nav'>
                 <Link className='nav-link' to='/collections'>Mycollections</Link>

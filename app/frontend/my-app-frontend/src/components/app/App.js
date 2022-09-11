@@ -6,7 +6,8 @@ import InspirationCard from "../inspirations/InspirationCard";
 import CategoryCard from "../pcategories/CategoryCard";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Collection from "../poems/Collection";
-import Search from "../search/Search"
+import Search from "../search/Search";
+import AuthorCard from "../authors/AuthorCard";
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/categories' element={<CategoryCard/>}/>
         {/* <Route exact path='/collection's element={<Collection/>}/> */}
         <Route exact path='/search' element={<Search/>}/>
+        <Route exact path='/authors' element={<AuthorCard/>}/>
       </Routes>
     </Router>
   );
