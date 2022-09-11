@@ -62,7 +62,7 @@ To set up the backend, run these commands:
 
  1. `bundle install`
  2. `bundle exec rake db:migrate db:seed`
- 3. You can run the app and explore your API in the Postman by using the custom Rake task:
+ 3. Start the Sinatra server API to run and explore the app by using the custom Rake task:
     `bundle exec rake server`
 
 ### Front-end
