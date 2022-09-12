@@ -1,10 +1,15 @@
 class ApplicationController < Sinatra::Base
-    set :default_content_type, 'application/json'
+  set :default_content_type, 'application/json'
   # ALL POEMS
   get '/poems' do
     poems = Poem.all
    poems.to_json
 
+  end
+
+  get '/poems/:id' do
+    poems = Poem.find(params[:id])
+    poems.to_json
   end
 
   # ALL POEM AUTHORS
@@ -27,15 +32,10 @@ get '/poems/:title' do
     )
   end
 
-  get 'poems/:id' do
-    poems = Poem.find(id: params[:id] )
+  get '/poems/:body' do
+      poems = Poem.find_by(body: params[:body] )
     poems.to_json
-  end
-
-get '/poems/:body' do
-    poems = Poem.find_by(body: params[:body] )
-   poems.to_json
-  end
+    end
 
 
   # GET AUTHORS BY ID

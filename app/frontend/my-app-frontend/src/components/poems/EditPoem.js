@@ -1,104 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-// import swal from 'sweetalert';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 const poemAPI = "http://localhost:9292/poems";
-const pauthorAPI = "http://localhost:9292/poemauthors";
 
-function EditPoem({addPoem},props) {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [authors_id, setAuthor] = useState("");
-  const [name, setName] = useState("");
-  const [categories_id, setCategory] = useState("");
 
-  const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const poem_id = props.match.params.id;
-//     axios.get(`/api/editpoem/${poem_id}`).then(res=>{
-//         if(res.data.status === 200){
-//             setTitle(res.data.title)
-//             setBody(res.data.body)
-//         }
-//         else if(res.data.status === 400){
-//           console.log("error")
-//           navigate('/poems')
-//         }
-//     }) 
-//   }, [props.match.params.id])
+function EditPoem() {
   
+  const [poemData, setPoemData] = useState({})
+  let { id } = useParams()
+  let poem_url = `http://localhost:9292/poems/${id}`;
 
+  useEffect(()=>{
+      fetch(poem_url)
+      .then(response=>response.json())
+      .then(data=>setPoemData(data))
+  },[])
+ 
+    console.log(poemData)
 
-  function handleSubmit(e) {
-    e.persist();
-    e.preventDefault();
-    fetch(poemAPI, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        body,
-        authors_id,
-        categories_id,
-      }),
-    })
-      .then((r) => r.json())
-    //   .then((newPoem) => addPoem(newPoem));
-    .then(res=>{
-                if(res.data.status === 200){
-                    setTitle(res.data.title)
-                    setBody(res.data.body)
-                }
-                else if(res.data.status === 400){
-                  console.log("error")
-                  navigate('/poems')
-                }
-            }) 
+    let navigate = useNavigate();
 
-      setTitle({...title,[e.target.name]: e.target.value});
-      setBody({...body,[e.target.name]: e.target.value});
-      setAuthor({...authors_id,[e.target.name]: e.target.value});
-      setCategory({...categories_id,[e.target.name]: e.target.value});
-  }
+    const handleSubmit = (e) =>{
+      e.preventDefault()
+      e.stopPropagation()
+        fetch(`${poemAPI}/${id}`, {
+            method: "PATCH",
+            headers: {
+              'content-type': 'application/json',
+              "Access-Control-Allow-Origin" : "*",  
+              "Access-Control-Allow-Credentials" : true 
+            },
+            body: JSON.stringify({
+                title: poemData.title,
+                body: poemData.body,
+                authors_id: poemData.authors_id,
+                categories_id: poemData.categories_id
+            })
+          })
+          .then(response=>response.json())
+          .then(data=>{
+          console.log(data)})
+          navigate(`/poems`)
+        };
+      
+      const onFormChange = (e) => {
+          setPoemData({...poemData,[e.target.name]:e.target.value});
+      };
+    
 
   return (
     <div className = 'container'>
-    <form className="new-poem-form" onSubmit={handleSubmit} >
-      <input 
-        placeholder="Title" 
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+     <form className="new-poem-form" onSubmit={handleSubmit} >
+        <input 
+          placeholder="Title" 
+          name='title'
+          value={poemData.title}
+          type = "text"
+          onChange={onFormChange}
+        />
 
-    
-      <textarea 
-        placeholder="Write your masterpiece here..." 
-        rows={10} 
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-      />
-
-      <input 
-        placeholder="Author" 
-        value={authors_id}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-
-      <input 
-        placeholder="Category" 
-        value={categories_id}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-
-      
-      <input 
-        type="submit" 
-        value="Update" 
-      />
+        <textarea 
+          placeholder="Write your masterpiece here..." 
+          rows={10} 
+          value={poemData.body}
+          name='body'
+          type = "text"
+          onChange={onFormChange}
+        />
+        
+        <input 
+          type="submit" 
+          value="Update" 
+        />
     </form>
     </div>
   );

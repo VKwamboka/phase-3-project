@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const inspirationAPI = "http://localhost:9292/inspirations";
 
-export default function EditInspiration({quotes}) {
+export default function EditInspiration() {
    
   // const [title, setTitle] = useState("");
   // const [body, setBody] = useState("");
@@ -25,11 +25,12 @@ export default function EditInspiration({quotes}) {
 
       const handleSubmit = (e) =>{
         e.preventDefault()
-        e.stopPropagation()
+        // e.stopPropagation()
           fetch(`${inspirationAPI}/${id}`, {
               method: "PATCH",
               headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "Access-Control-Allow-Origin" : "*"
               },
               body: JSON.stringify({
                   title: quoteData.title,
@@ -40,17 +41,10 @@ export default function EditInspiration({quotes}) {
             })
             .then(response=>response.json())
             .then(data=>{
-              console.log(data)
+              console.log(data)   })
             navigate(`/inspirations`)
-
-            // setTitle({...title,[e.target.name]: e.target.value});
-            // setBody({...body,[e.target.name]: e.target.value});
-            // setAuthor({...authors_id,[e.target.name]: e.target.value});
-            // setCategory({...categories_id,[e.target.name]: e.target.value});
-          })
-        
-            };
-        
+          };
+   
         const onFormChange = (e) => {
             setQuoteData({...quoteData,[e.target.name]:e.target.value});
         };
@@ -61,20 +55,19 @@ export default function EditInspiration({quotes}) {
       <form className="new-poem-form" onSubmit={handleSubmit} >
         <input 
           placeholder="Title" 
-          // value={title}
-          // {...title}
+          name='title'
           value={quoteData.title}
+          type = "text"
           onChange={onFormChange}
         />
 
         <textarea 
           placeholder="Write your masterpiece here..." 
           rows={10} 
-          // value={body}
           value={quoteData.body}
-          // onChange={(e) => setBody(e.target.value)}
+          name='body'
+          type = "text"
           onChange={onFormChange}
-          // onChange={(e) => setBody(e.target.value)}
         />
         
         <input 
