@@ -66,6 +66,7 @@ function EditPoem({addPoem},props) {
   }
 
   return (
+    <div className = 'container'>
     <form className="new-poem-form" onSubmit={handleSubmit} >
       <input 
         placeholder="Title" 
@@ -99,6 +100,7 @@ function EditPoem({addPoem},props) {
         value="Update" 
       />
     </form>
+    </div>
   );
 }
 

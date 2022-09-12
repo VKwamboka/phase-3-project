@@ -22,10 +22,6 @@ function Category({category, removeCategory}) {
          <div class="card">
         <div class="card-body">
         <p className='pbody'>{name} poems and quotes</p>
-            <button onClick={() => setIsRead(!isRead)} >
-                Edit {isRead ? "unread" : "read" }
-            </button>
-
             <button onClick={onDeleteClick} >
                 Delete
             </button>
