@@ -39,10 +39,9 @@ function EditPoem() {
             })
           })
           .then(response=>response.json())
-          .then(data=>{
-          console.log(data)})
+          .then(data=>{ console.log(data)})
           navigate(`/poems`)
-        };
+          };
       
       const onFormChange = (e) => {
           setPoemData({...poemData,[e.target.name]:e.target.value});

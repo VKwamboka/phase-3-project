@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 const poemAPI = "http://localhost:9292/poems";
@@ -16,8 +16,14 @@ function Poem({poem, removePoem, addToFavorites}) {
     });
     removePoem(poem);
   }
-  const authorAPI =`http://localhost:9292//poemauthors/`
- 
+  console.log(poem)
+
+//   const authorAPI =`http://localhost:9292//poemauthors`
+//   useEffect(()=>{
+//     fetch(authorAPI)
+//     .then(response=>response.json())
+//     .then(data=>console.log(data))
+// },[])
 
   return (
     <div>
@@ -33,7 +39,6 @@ function Poem({poem, removePoem, addToFavorites}) {
       </p>
       <button onClick={() => setIsRead(!isRead)} >
       <Link className='nav-link' to={`/editpoem/${poem.id}`}>Edit</Link>
-        {/* Mark as {isRead ? "unread" : "read" } */}
       </button>
 
       <button onClick={onDeleteClick} >

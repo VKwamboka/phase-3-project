@@ -15,6 +15,7 @@ export default function EditInspiration() {
     const [quoteData, setQuoteData] = useState({})
     let { id } = useParams()
     let quote_url = `http://localhost:9292/inspirations/${id}`;
+    
     useEffect(()=>{
         fetch(quote_url)
         .then(response=>response.json())
