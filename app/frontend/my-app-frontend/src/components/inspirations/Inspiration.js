@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 const inspirationAPI = "http://localhost:9292/inspirations";
-
-
 
 function Inspiration({quote, removeQuote, addToFavorites}) {
   const {title, body, authors_id} = quote;
@@ -16,9 +14,6 @@ function Inspiration({quote, removeQuote, addToFavorites}) {
     });
     removeQuote(quote);
   }
-
-  
-
 
   
   const authorAPI =`http://localhost:9292//poemauthors/${authors_id}`

@@ -14,9 +14,22 @@ class ApplicationController < Sinatra::Base
   end
 
 get '/poems/:title' do
-    poems = Poem.find_by(title: params[:title] )
+  poems = Poem.find_by(title: params[:title] )
    poems.to_json
 
+  end
+
+  patch "/poems/:id"  do
+    poems = Poem.find(params[:id])
+    poems.update(
+      title: params[:title],
+      body: params[:body]
+    )
+  end
+
+  get 'poems/:id' do
+    poems = Poem.find(id: params[:id] )
+    poems.to_json
   end
 
 get '/poems/:body' do
@@ -72,5 +85,7 @@ get '/poems/:body' do
       body: params[:body]
     )
   end
+
+
 end
  

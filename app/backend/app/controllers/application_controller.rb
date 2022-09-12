@@ -25,6 +25,11 @@ class ApplicationController < Sinatra::Base
     inspirationcategories.to_json
   end
 
+  get '/inspirations/:id' do
+    inspirations = Inspiration.find(params[:id] )
+    inspirations.to_json
+  end
+
   delete "/inspirations/:id" do
     inspiration = Inspiration.find(params[:id])
     inspiration.destroy
