@@ -7,12 +7,9 @@ export default function Navbar() {
    <nav className='navbar navbar-expand-lg bg-lig'>
     {/* <Router> */}
     <div className='container-fluid'>
+    <a class="navbar-brand" href="#">StreamOfThoughts</a>
     <ul className='navbar-nav'>
     {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR849Ce5R2mqbXZcTw3Ctu8lbqAC0VE8SMFCg&usqp=CAU"  height="1rem" width="3rem" /> */}
-           
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">StreamOfThoughts</a>
-            </div>
             <li className='nav-item'>
                 <Link className='nav-link' to='/'>Home</Link>
             </li>
