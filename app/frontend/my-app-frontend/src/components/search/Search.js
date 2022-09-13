@@ -2,9 +2,9 @@ import React,{useState, useEffect} from 'react'
 import Poem from "../poems/Poem";
 import PoemCont from "../poems/PoemCont";
 
-const SEARCH_URL ='http://localhost:9292/poems/:title'
+const SEARCH_URL ='http://localhost:9292/poemstitles/'
 
-export default function Search({poem}) {
+export default function Search() {
 
   const [searchItem, setSearchItem] = useState("")
   const [counter, setCounter] = useState(0)
@@ -26,7 +26,7 @@ export default function Search({poem}) {
 
     const actualSearch = SEARCH_URL + searchItem
 
-    fetch(`http://localhost:9292/poems/${searchItem}`)
+    fetch(actualSearch)
     .then((response) => response.json())
     .then((data) => {
         setResults(data.poems == null ? 0 : data.poems.length )
@@ -44,13 +44,7 @@ useEffect(
 
 let card =  poems?.map(poem =>{
   return(
-    
-    // <Poem
-    //   title={poem.title} 
-    //   body={poem.body} 
-    //   authors_id={poem.authors_id}
-    //   key ={poem.id}
-    // />
+
     <div>
       <h3>{poem.title}</h3>
     </div>
@@ -74,6 +68,7 @@ console.log(card)
         <br/>
       <div >
       {/* <div className="poems-cotainer"> */}
+      <h3>{results} Poems found</h3>
       {card}
      
       </div>

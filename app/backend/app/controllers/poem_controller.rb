@@ -18,9 +18,9 @@ class ApplicationController < Sinatra::Base
     poemauthors.to_json
   end
 
-get '/poems/:title' do
+get '/poemstitles/:title' do
   poems = Poem.find_by(title: params[:title] )
-   poems.to_json
+  poems.to_json
 
   end
 

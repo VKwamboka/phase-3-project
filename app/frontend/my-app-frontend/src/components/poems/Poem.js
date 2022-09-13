@@ -5,8 +5,9 @@ const poemAPI = "http://localhost:9292/poems";
 
 
 
-function Poem({poem, removePoem, addToFavorites}) {
+function Poem({poem, author, removePoem, addToFavorites}) {
   const {title, body, authors_id, categories_id} = poem;
+  // const{name} = author
   const [isRead, setIsRead] = useState(false)
 
   function onDeleteClick(e) {
@@ -16,14 +17,20 @@ function Poem({poem, removePoem, addToFavorites}) {
     });
     removePoem(poem);
   }
-  console.log(poem)
+  
 
-//   const authorAPI =`http://localhost:9292//poemauthors`
-//   useEffect(()=>{
+//   const authorAPI =`http://localhost:9292/poemauthors/${authors_id}`
+//   const pauthors = useEffect(()=>{
 //     fetch(authorAPI)
 //     .then(response=>response.json())
 //     .then(data=>console.log(data))
+   
 // },[])
+// pauthors?.map(author=>{
+//   if (author.id == authors_id){
+//     authors_id = author.name
+//   }
+// })
 
   return (
     <div>
